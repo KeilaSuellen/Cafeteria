@@ -12,6 +12,7 @@ import com.google.android.material.navigation.NavigationBarView;
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
 
+    ProductsFragment productFragment = new ProductsFragment();
     CoffeeFragment coffeeFragment = new CoffeeFragment();
     MuffinFragment muffinFragment = new MuffinFragment();
     TeaFragment teaFragment = new TeaFragment();
@@ -34,6 +35,12 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 switch (item.getItemId()) {
+                    case R.id.product:
+                        getSupportFragmentManager().
+                                beginTransaction().
+                                replace(R.id.idContainer, productFragment).
+                                commit();
+                        return true;
                     case R.id.coffee:
                         getSupportFragmentManager().
                                 beginTransaction().
@@ -52,14 +59,13 @@ public class MainActivity extends AppCompatActivity {
                                 replace(R.id.idContainer, teaFragment).
                                 commit();
                         return true;
+
                     case R.id.donuts:
                         getSupportFragmentManager().
                                 beginTransaction().
                                 replace(R.id.idContainer, donutsFragment).
                                 commit();
                         return true;
-
-
                 }
 
                 return false;

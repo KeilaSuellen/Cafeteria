@@ -12,8 +12,7 @@ import com.google.android.material.navigation.NavigationBarView;
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
 
-    ProductsFragment productFragment = new ProductsFragment();
-    CoffeeFragment coffeeFragment = new CoffeeFragment();
+    listFragment listFragment = new listFragment();
     MuffinFragment muffinFragment = new MuffinFragment();
     TeaFragment teaFragment = new TeaFragment();
     DonutsFragment donutsFragment = new DonutsFragment();
@@ -27,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager().
                 beginTransaction().
-                replace(R.id.idContainer, coffeeFragment).
+                replace(R.id.idContainer,listFragment).
                 commit();
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -35,16 +34,10 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 switch (item.getItemId()) {
-                    case R.id.product:
-                        getSupportFragmentManager().
-                                beginTransaction().
-                                replace(R.id.idContainer, productFragment).
-                                commit();
-                        return true;
                     case R.id.coffee:
                         getSupportFragmentManager().
                                 beginTransaction().
-                                replace(R.id.idContainer, coffeeFragment).
+                                replace(R.id.idContainer, listFragment).
                                 commit();
                         return true;
                     case R.id.muffin:
